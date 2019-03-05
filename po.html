@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+ <script>
+    let request = require('request');
+    const argv = require('yargs').argv;
+    
+    let apiKey = 'ff800074c5e221ec806532b18500f96e';
+    let city = argv.c || 'Dhaka';
+    let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
+    
+    request(url, function (err, response, body) {
+        if(err){
+          console.log('error:', error);
+        } else {
+          let weather = JSON.parse(body)
+          let message = `It's ${weather.main.temp} degrees in ${weather.name} looks like ${weather.clouds.all} cloudy!`;
+
+
+          <h1>The weather app</h1>
+    <button onclick="dok()">Try it</button>
+ <p id="demo"></p>
+          function dok(){
+             document.getElementById("demo").innerHTML=message;
+          }
+          dok();
+        }
+      });
+    
+    </script>
+
+</body>
+</html>
